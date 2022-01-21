@@ -1,0 +1,49 @@
+{% extends 'jquery/_layout.html' %}
+	{% load static %}
+		{% block content %}
+
+
+<!-- Início da Div Principal -->
+<div class="container">
+	<!--Início do título-->
+	<div id="title">
+		Lista
+		<a id="open_link" href="#">Click me</a>		
+	</div>
+	<!-- Fim do Título -->
+
+	<!-- Início do Conteúdo-->
+	<div id="list">
+		<ul>
+			<li>Object 1</li>
+			<li>Object 2</li>
+			<li>Object 3</li>
+			<li>Object 4</li>
+			<li>Object 5</li>
+		</ul>
+	
+	</div>
+	<!-- Fim do conteúdo -->
+
+</div>
+<!-- Fim da Div Principal-->
+
+{% endblock content %}
+
+{% block js%}
+<script type="text/javascript">
+
+	// checa se o documento foi carregado
+	$(document).ready(function(){
+
+		// oculta a lista
+		$('#list').hide();
+
+		// aplica uma ação para visualizar os itens escondidos'
+		$('#open_link').click(function(){
+			$('#list').slideToggle('slow');
+		});
+		
+	});
+</script>
+{% endblock js%}

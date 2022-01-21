@@ -1,0 +1,73 @@
+{% extends 'jquery/_layout.html' %}
+	{% load static %}
+		{% block content %}
+
+
+<!-- Início da Div Principal -->
+<div class="container">
+	<!--Início do título-->
+	<div id="title">
+		Estudando JQuery
+		<a id="open_link" href="#">Clique Aqui</a>		
+	</div>
+	<!-- Fim do Título -->
+
+	<!-- Início do Conteúdo-->
+	<div id="content">
+	<pre>	
+	
+		Lorem Ipsum is simply dummy text of the printing
+		and typesetting industry. Lorem Ipsum has been 
+		the industry's standard dummy text ever since 
+		the 1500s, when an unknown printer took a galley 
+		of type and scrambled it to make a type specimen 
+		book. It has survived not only five centuries, 
+		but also the leap into electronic typesetting, 
+		remaining essentially unchanged. It was 
+		popularised in the 1960s with the release of 
+		Letraset sheets containing Lorem Ipsum passages, 
+		and more recently with desktop publishing 
+		software like Aldus PageMaker including 
+		versions of Lorem Ipsum.
+
+		Lorem Ipsum is simply dummy text of the printing
+		and typesetting industry. Lorem Ipsum has been 
+		the industry's standard dummy text ever since 
+		the 1500s, when an unknown printer took a galley 
+		of type and scrambled it to make a type specimen 
+		book. It has survived not only five centuries, 
+		but also the leap into electronic typesetting, 
+		remaining essentially unchanged. It was 
+		popularised in the 1960s with the release of 
+		Letraset sheets containing Lorem Ipsum passages, 
+		and more recently with desktop publishing 
+		software like Aldus PageMaker including 
+		versions of Lorem Ipsum.
+	</pre>
+	
+	</div>
+	<!-- Fim do conteúdo -->
+
+</div>
+<!-- Fim da Div Principal-->
+
+{% endblock content %}
+
+{% block js%}
+<script type="text/javascript">
+
+	// checa se o documento foi carregado
+	$(document).ready(function(){
+
+		// oculta a div content
+		$('#content').hide();
+
+		// define o que acontece quando #open_link é clicado
+		$('#open_link').click(function(){
+		
+			// aplica a ação de slide ao conteúdo, na velocidade 'slow'
+			$('#content').slideToggle('slow');
+		});
+	});
+</script>
+{% endblock js%}
