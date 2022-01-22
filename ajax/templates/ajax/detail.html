@@ -1,0 +1,31 @@
+{% extends 'ajax/_layout.html' %}
+{% load static %}
+{% block title %}| Visualizar {% endblock %}
+{% block content %}
+<div class="container">
+    <ul>
+        <li>
+            <h4>{{ car.model }}</h4>
+        </li>
+        <li>
+            <ul>
+                <li>
+                    <h5>{{ car.brand }}</h5>
+                </li>
+                <li>
+                    <h6>{{ car.year }}</h6>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+    <hr>
+    <a href="{% url 'ajax:index' %}">
+        <button class="btn btn-primary">
+            Voltar
+        </button>
+    </a>
+</div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'ajax/_layout.html' %}
+{% load static %}
+{% block title %}| Editar {% endblock %}
+{% block content %}
+<div class="container">
+    <form name="form" id="form" action="{% url 'ajax:update' car.pk %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success col-md-1">Salvar</button>
+    </form>
+</div>
+
+<div class="container">
+    <hr>
+    <a href="{% url 'ajax:index' %}">
+        <button class="btn btn-primary">
+            Voltar
+        </button>
+    </a>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'ajax/_layout.html' %}
+{% load static %}
+
+{% block title %} | Formulário{% endblock title %}
+
+{% block content %}
+
+<div class="col-8 m-auto pt-2 pb-2 text-center">
+    <h1>Cadastro</h1>
+</div>
+
+<div class="col-8 m-auto pt-3 pb-2 text-center">
+    <a href="{% url 'ajax:index' %}" class="btn btn-info">Voltar</a>
+</div>
+
+<div class="container" id="result"></div>
+
+<div class="col-8 m-auto pt-4 pb-2 text-center">
+    <form name="form" id="form" action="{% url 'ajax:form' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success col-md-1">Salvar</button>
+    </form>
+</div>
+
+{% endblock content%}

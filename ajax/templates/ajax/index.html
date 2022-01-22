@@ -1,0 +1,42 @@
+{% extends 'ajax/_layout.html' %}
+{% load static %}
+{% block title %}| Carros{% endblock %}
+
+{% block content %}
+<div class="col-8 m-auto pt-3 pb-2 text-center">
+    <a href="{% url 'ajax:form' %}" class="btn btn-success">Adicionar</a>
+</div>
+
+<div class="col-8 m-auto pt-4 pb-2 text-center">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if cars %}
+            {% for car in cars %}
+            <tr>
+                <th scope="row">{{ car.pk}}</th>
+                <td>{{ car.model }}</td>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.year }}</td>
+                <td>
+                    <a href="{% url 'ajax:detail' car.pk %}" class="btn btn-primary">Visualizar</a>
+                    <a href="{% url 'ajax:update' car.pk %}" class="btn btn-dark">Editar</a>
+                    <a href="{% url 'ajax:delete' car.pk %}" class="btn btn-danger btnDel">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <h3>Sem Registros</h3>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
