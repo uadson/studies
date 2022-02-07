@@ -1,0 +1,36 @@
+{% extends 'javascript/_layout.html' %}
+{% load static %}
+{% block title %}| IMC{% endblock title %}
+{% block content %}
+<section class="container">
+
+    <h1>Calcule seu IMC</h1>
+    <form action="{% url 'javascript:index' %}" id="form" method="POST">
+        {% csrf_token %}
+        <label for="peso">Peso</label>
+        {{ form.peso }}
+        <label for="altura">Altura</label>
+        {{ form.altura }}
+        <button type="submit">Enviar</button>
+    </form>
+
+</section>
+{% endblock content %}
+
+{% block js %}
+<script>
+    // Capturar evento de submit do formulário
+    const form = document.querySelector('#form');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        console.log('Enviado...');
+        setResult('Olá Mundo');
+    });
+
+    function setResult(msg) {
+        const result = documet.querySelector('#result');
+        result.innerHTML = `<p>${msg}</p>`
+    }
+</script>
+{% endblock js %}

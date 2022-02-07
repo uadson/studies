@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # local apps
     'ajax',
     'jquery',
+    'javascript',
 
     # 3rd apps
     'rest_framework',
