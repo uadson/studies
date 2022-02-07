@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'ajax',
     'jquery',
     'javascript',
+    
+    # backend
+    'core',
 
     # 3rd apps
     'rest_framework',
